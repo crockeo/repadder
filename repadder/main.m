@@ -5,6 +5,7 @@
 #import <stdio.h>
 
 #import "keyboard.h"
+#import "f310.h"
 
 //////////
 // Code //

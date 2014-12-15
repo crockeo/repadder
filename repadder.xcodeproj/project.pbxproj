@@ -27,6 +27,7 @@
 /* Begin PBXFileReference section */
 		328835AA1A3F8FFD00108B51 /* keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyboard.m; sourceTree = "<group>"; };
 		328835AC1A3F90E000108B51 /* keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
+		328835AD1A3F920700108B51 /* f310.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = f310.h; sourceTree = "<group>"; };
 		32C7433C1A3F8AE100D8F7D2 /* repadder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = repadder; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C7433F1A3F8AE100D8F7D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32C743461A3F8BA000D8F7D2 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 				32C7433F1A3F8AE100D8F7D2 /* main.m */,
 				328835AA1A3F8FFD00108B51 /* keyboard.m */,
 				328835AC1A3F90E000108B51 /* keyboard.h */,
+				328835AD1A3F920700108B51 /* f310.h */,
 			);
 			path = repadder;
 			sourceTree = "<group>";
