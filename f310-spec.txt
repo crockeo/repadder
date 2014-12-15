@@ -25,18 +25,22 @@ Right Stick = 11
 Left Stick X = 0
   Minimum Value: -32768 (Left)
   Maximum Value:  32767 (Right)
+  Neutral      :  128
 
 Left Stick Y = 1
   Minimum Value: -32768 (Up)
   Maximum Value:  32767 (Down)
+  Neutral      : -129
 
 Right Stick X = 0
   Minimum Value: -32768 (Right)
   Maximum Value:  32767 (Right)
+  Neutral      :  128
 
 Right Stick Y = 1
   Minimum Value: -32768 (Up)
   Maximum Value:  32767 (Down)
+  Neutral      : -129
 
 //
 // These are the maps of hats to things.
