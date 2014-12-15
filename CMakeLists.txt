@@ -17,3 +17,7 @@ set(CMAKE_CXX_FLAGS "-framework SDL2 ${CMAKE_CXX_FLAGS}")
 
 # Setting up the main executable.
 add_executable(repadder "src/main.cpp")
+
+# Adding my own code as a library.
+add_library(repadder-library "src/controller.cpp")
+target_link_libraries(repadder repadder-library)
