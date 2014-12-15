@@ -18,7 +18,7 @@ void processEvent(SDL_Event e) {
 
         switch (button) {
             case F310_X:
-                writeCharacter((CGKeyCode)65);
+                writeCharacter((CGKeyCode)1);
                 break;
             default:
                 break;
