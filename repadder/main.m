@@ -1,14 +1,13 @@
 //////////////
 // Includes //
-#include <SDL2/SDL.h>
-#include <stdbool.h>
-#include <stdio.h>
+#import <SDL2/SDL.h>
+#import <stdbool.h>
+#import <stdio.h>
+
+#import "keyboard.h"
 
 //////////
 // Code //
-
-// Creating a new piece of stuff.
-#define new(Type) (*Type)malloc(sizeof(Type))
 
 // Processing an event.
 void processEvent(SDL_Event e) {
@@ -36,7 +35,7 @@ int chooseJoystick() {
     
     int joy = 0;
     while (joy == 0 || joy > max) {
-        printf(" > ");
+        printf(" > \n");
         joy = 1;
         // std::cin >> joy;
     }
@@ -50,10 +49,8 @@ int main() {
         return 1;
     
     int n = chooseJoystick();
-    if (n == -1) {
-        printf("Not enough joysticks.\n");
+    if (n == -1)
         return 1;
-    }
     
     SDL_Joystick* joy = SDL_JoystickOpen(n);
     if (joy == NULL) {
@@ -71,6 +68,9 @@ int main() {
                 running = false;
                 break;
             } else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) {
+                running = false;
+                break;
+            } else if (e.type == SDL_JOYBUTTONDOWN && e.jbutton.button == 9) {
                 running = false;
                 break;
             }
