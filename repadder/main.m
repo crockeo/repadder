@@ -49,19 +49,40 @@ void processEvent(SDL_Event e) {
         }
     } else if (e.type == SDL_JOYHATMOTION) {
         Uint8 value = e.jhat.value;
+        printf("Hat: %d\n", value);
 
         switch (value) {
-            case 1:
+            case F310_DPAD_UP:
                 writeCharacter(KEY_UP);
                 break;
-            case 2:
-                writeCharacter(KEY_RIGHT);
-                break;
-            case 4:
+            case F310_DPAD_DOWN:
                 writeCharacter(KEY_DOWN);
                 break;
-            case 8:
+
+            case F310_DPAD_LEFT:
                 writeCharacter(KEY_LEFT);
+                break;
+            case F310_DPAD_RIGHT:
+                writeCharacter(KEY_RIGHT);
+                break;
+
+            case F310_DPAD_UP_LEFT:
+                writeCharacter(KEY_UP);
+                writeCharacter(KEY_LEFT);
+                break;
+            case F310_DPAD_DOWN_LEFT:
+                writeCharacter(KEY_DOWN);
+                writeCharacter(KEY_LEFT);
+                break;
+
+            case F310_DPAD_UP_RIGHT:
+                writeCharacter(KEY_UP);
+                writeCharacter(KEY_RIGHT);
+                break;
+            case F310_DPAD_DOWN_RIGHT:
+                writeCharacter(KEY_DOWN);
+                writeCharacter(KEY_RIGHT);
+            case F310_DPAD_NEUTRAL:
                 break;
         }
     }
