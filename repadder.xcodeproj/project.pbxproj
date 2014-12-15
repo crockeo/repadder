@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		32C743401A3F8AE100D8F7D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C7433F1A3F8AE100D8F7D2 /* main.m */; };
+		32C743471A3F8BA000D8F7D2 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C743461A3F8BA000D8F7D2 /* SDL2.framework */; };
+		32E500671A3F8BFA00591BD1 /* controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32E500641A3F8BFA00591BD1 /* controller.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,9 @@
 /* Begin PBXFileReference section */
 		32C7433C1A3F8AE100D8F7D2 /* repadder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = repadder; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C7433F1A3F8AE100D8F7D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32C743461A3F8BA000D8F7D2 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		32E500641A3F8BFA00591BD1 /* controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = controller.cpp; sourceTree = "<group>"; };
+		32E500651A3F8BFA00591BD1 /* controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = controller.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C743471A3F8BA000D8F7D2 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +47,7 @@
 		32C743331A3F8AE100D8F7D2 = {
 			isa = PBXGroup;
 			children = (
+				32C743461A3F8BA000D8F7D2 /* SDL2.framework */,
 				32C7433E1A3F8AE100D8F7D2 /* repadder */,
 				32C7433D1A3F8AE100D8F7D2 /* Products */,
 			);
@@ -57,6 +64,8 @@
 		32C7433E1A3F8AE100D8F7D2 /* repadder */ = {
 			isa = PBXGroup;
 			children = (
+				32E500641A3F8BFA00591BD1 /* controller.cpp */,
+				32E500651A3F8BFA00591BD1 /* controller.hpp */,
 				32C7433F1A3F8AE100D8F7D2 /* main.m */,
 			);
 			path = repadder;
@@ -119,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C743401A3F8AE100D8F7D2 /* main.m in Sources */,
+				32E500671A3F8BFA00591BD1 /* controller.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +212,10 @@
 		32C743441A3F8AE100D8F7D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +223,10 @@
 		32C743451A3F8AE100D8F7D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -232,6 +250,7 @@
 				32C743451A3F8AE100D8F7D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

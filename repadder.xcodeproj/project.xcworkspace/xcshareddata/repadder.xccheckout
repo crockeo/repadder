@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>281C9FD5-6D9F-413D-A061-EFCD26507ECA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>repadder</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>006604C6FF8131885FC9A44D91CF5E0457915100</key>
+		<string>github.com:crockeo/repadder.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>repadder.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>006604C6FF8131885FC9A44D91CF5E0457915100</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:crockeo/repadder.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>006604C6FF8131885FC9A44D91CF5E0457915100</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>006604C6FF8131885FC9A44D91CF5E0457915100</string>
+			<key>IDESourceControlWCCName</key>
+			<string>repadder</string>
+		</dict>
+	</array>
+</dict>
+</plist>
