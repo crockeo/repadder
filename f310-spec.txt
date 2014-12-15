@@ -1,0 +1,58 @@
+//
+// These are the mappings of buttons to button index for the Logitech F310.
+//
+
+X = 0
+A = 1
+B = 2
+Y = 3
+
+Left Bumper = 4
+Right Bumper = 5
+Left Trigger = 6
+Right Trigger = 7
+
+Select = 9
+Start = 10
+
+Left Stick = 10
+Right Stick = 11
+
+//
+// These are the mapps of axes to axis index.
+//
+
+Left Stick X = 0
+  Minimum Value: -32768 (Left)
+  Maximum Value:  32767 (Right)
+  Neutral      :  128
+
+Left Stick Y = 1
+  Minimum Value: -32768 (Up)
+  Maximum Value:  32767 (Down)
+  Neutral      : -129
+
+Right Stick X = 0
+  Minimum Value: -32768 (Right)
+  Maximum Value:  32767 (Right)
+  Neutral      :  128
+
+Right Stick Y = 1
+  Minimum Value: -32768 (Up)
+  Maximum Value:  32767 (Down)
+  Neutral      : -129
+
+//
+// These are the maps of hats to things.
+//
+
+The DPad = 0
+  Neutral: 0
+  Up: 1
+  Up+Right: 3
+  Right: 2
+  Right+Down: 6
+  Down: 4
+  Down+Left: 12
+  Left: 8
+  Left+Up: 9
