@@ -24,6 +24,29 @@ void processEvent(SDL_Event e) {
     }
 }
 
+// Choosing a joystick index.
+int chooseJoystick() {
+    int max = SDL_NumJoysticks();
+    if (max < 1) {
+        std::cout << "Not enough joysticks!\n";
+        return -1;
+    }
+
+    for (int i = 0; i < max; i++) {
+        SDL_Joystick* joy = SDL_JoystickOpen(i);
+        std::cout << SDL_JoystickName(joy) << " (" << (i + 1) << ")\n";
+        SDL_JoystickClose(joy);
+    }
+
+    int joy = 0;
+    while (joy == 0 || joy > max) {
+        std::cout << " > ";
+        std::cin >> joy;
+    }
+
+    return joy - 1;
+}
+
 // The entry point to the application.
 int main() {
     if (SDL_Init(SDL_INIT_JOYSTICK) == -1)
@@ -34,9 +57,10 @@ int main() {
         return 1;
     }
 
-    SDL_Joystick* joy = SDL_JoystickOpen(0);
+    int n = chooseJoystick();
+    SDL_Joystick* joy = SDL_JoystickOpen(n);
     if (joy == nullptr) {
-        std::cout << "Couldn't open joystick 0.\n";
+        std::cout << "Couldn't open joystick " << (n + 1) << ".\n";
         return 1;
     }
 
