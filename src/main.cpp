@@ -14,7 +14,11 @@ void processEvent(SDL_Event e) {
         if (e.key.keysym.sym == SDLK_a)
             std::cout << "A DOWN!!!\n";
     } else if (e.type == SDL_JOYBUTTONDOWN) {
-        std::cout << (int)e.jbutton.button << "\n";
+        std::cout << "Button: " << (int)e.jbutton.button << "\n";
+    } else if (e.type == SDL_JOYAXISMOTION) {
+        std::cout << "Axis: " << (int)e.jaxis.axis << "\n";
+    } else if (e.type == SDL_JOYHATMOTION) {
+        std::cout << "Hat: " << (int)e.jhat.hat << "\n";
     }
 }
 
