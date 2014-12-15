@@ -1,0 +1,29 @@
+//
+// These are the mappings of buttons to button index for the Logitech F310.
+//
+
+X = 0
+A = 1
+B = 2
+Y = 3
+
+Left Bumper = 4
+Right Bumper = 5
+Left Trigger = 6
+Right Trigger = 7
+
+Select = 9
+Start = 10
+
+Left Stick = 10
+Right Stick = 11
+
+//
+// These are the mapps of axes to axis index.
+//
+
+Left Stick X = 0
+Left Stick Y = 1
+
+Right Stick X = 2
+Right Stick Y = 3
