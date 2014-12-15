@@ -12,37 +12,37 @@
 
 // Processing an event.
 void processEvent(SDL_Event e) {
-    if (e.type == SDL_JOYBUTTONDOWN) {
+    if (e.type == SDL_JOYBUTTONUP || e.type == SDL_JOYBUTTONDOWN) {
         Uint8 button = e.jbutton.button;
         printf("Button: %d\n", button);
 
         switch (button) {
             case F310_X:
-                writeCharacter(KEY_A);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_A);
                 break;
             case F310_A:
-                writeCharacter(KEY_SPACE);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_SPACE);
                 break;
             case F310_B:
-                writeCharacter(KEY_G);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_G);
                 break;
             case F310_Y:
-                writeCharacter(KEY_Q);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_Q);
                 break;
             case F310_LEFT_BUMPER:
-                writeCharacter(KEY_X);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_X);
                 break;
             case F310_RIGHT_BUMPER:
-                writeCharacter(KEY_Z);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_Z);
                 break;
             case F310_LEFT_TRIGGER:
-                writeCharacter(KEY_C);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_C);
                 break;
             case F310_RIGHT_TRIGGER:
-                writeCharacter(KEY_V);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_V);
                 break;
             case F310_START:
-                writeCharacter(KEY_ESCAPE);
+                writeCharacter(e.jbutton.state == SDL_PRESSED, KEY_ESCAPE);
                 break;
             default:
                 break;
@@ -53,36 +53,40 @@ void processEvent(SDL_Event e) {
 
         switch (value) {
             case F310_DPAD_UP:
-                writeCharacter(KEY_UP);
+                writeCharacter(true, KEY_UP);
                 break;
             case F310_DPAD_DOWN:
-                writeCharacter(KEY_DOWN);
+                writeCharacter(true, KEY_DOWN);
                 break;
 
             case F310_DPAD_LEFT:
-                writeCharacter(KEY_LEFT);
+                writeCharacter(true, KEY_LEFT);
                 break;
             case F310_DPAD_RIGHT:
-                writeCharacter(KEY_RIGHT);
+                writeCharacter(true, KEY_RIGHT);
                 break;
 
             case F310_DPAD_UP_LEFT:
-                writeCharacter(KEY_UP);
-                writeCharacter(KEY_LEFT);
+                writeCharacter(true, KEY_UP);
+                writeCharacter(true, KEY_LEFT);
                 break;
             case F310_DPAD_DOWN_LEFT:
-                writeCharacter(KEY_DOWN);
-                writeCharacter(KEY_LEFT);
+                writeCharacter(true, KEY_DOWN);
+                writeCharacter(true, KEY_LEFT);
                 break;
 
             case F310_DPAD_UP_RIGHT:
-                writeCharacter(KEY_UP);
-                writeCharacter(KEY_RIGHT);
+                writeCharacter(true, KEY_UP);
+                writeCharacter(true, KEY_RIGHT);
                 break;
             case F310_DPAD_DOWN_RIGHT:
-                writeCharacter(KEY_DOWN);
-                writeCharacter(KEY_RIGHT);
+                writeCharacter(true, KEY_DOWN);
+                writeCharacter(true, KEY_RIGHT);
             case F310_DPAD_NEUTRAL:
+                writeCharacter(false, KEY_DOWN);
+                writeCharacter(false, KEY_UP);
+                writeCharacter(false, KEY_LEFT);
+                writeCharacter(false, KEY_RIGHT);
                 break;
         }
     }

@@ -28,6 +28,6 @@ const static CGKeyCode KEY_SPACE  = 49;
 const static CGKeyCode KEY_ESCAPE = 53;
 
 // Writing a character out.
-void writeCharacter(CGKeyCode);
+void writeCharacter(bool, CGKeyCode);
 
 #endif

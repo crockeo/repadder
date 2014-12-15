@@ -9,8 +9,8 @@
 // Code //
 
 // Writing a character out to the screen.
-void writeCharacter(CGKeyCode code) {
-    CGEventRef e = CGEventCreateKeyboardEvent(NULL, code, true);
+void writeCharacter(bool press, CGKeyCode code) {
+    CGEventRef e = CGEventCreateKeyboardEvent(NULL, code, press);
     CGEventPost(kCGHIDEventTap, e);
     CFRelease(e);
 }
