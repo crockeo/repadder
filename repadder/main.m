@@ -12,12 +12,18 @@
 
 // Processing an event.
 void processEvent(SDL_Event e) {
-    if (e.type == SDL_JOYBUTTONDOWN)
-        printf("Button: %d\n", (int)e.jbutton.button);
-    else if (e.type == SDL_JOYAXISMOTION)
-        printf("Axis: %d\n  Val: %d\n", (int)e.jaxis.axis, (int)e.jaxis.value);
-    else if (e.type == SDL_JOYHATMOTION)
-        printf("Hat: %d\n  Val: %d\n", (int)e.jhat.hat, (int)e.jhat.value);
+    if (e.type == SDL_JOYBUTTONDOWN) {
+        Uint8 button = e.jbutton.button;
+        printf("Button: %d\n", button);
+
+        switch (button) {
+            case F310_X:
+                writeCharacter((CGKeyCode)65);
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 // Choosing a joystick index.
