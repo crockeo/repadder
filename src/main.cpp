@@ -14,13 +14,13 @@ void processEvent(SDL_Event e) {
         if (e.key.keysym.sym == SDLK_a)
             std::cout << "A DOWN!!!\n";
     } else if (e.type == SDL_JOYBUTTONDOWN) {
-        std::cout << e.jbutton.button << "\n";
+        std::cout << (int)e.jbutton.button << "\n";
     }
 }
 
 // The entry point to the application.
 int main() {
-    if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
+    if (SDL_Init(SDL_INIT_JOYSTICK) == -1)
         return 1;
 
     if (SDL_NumJoysticks() < 1) {
