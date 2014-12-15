@@ -18,9 +18,50 @@ void processEvent(SDL_Event e) {
 
         switch (button) {
             case F310_X:
-                writeCharacter((CGKeyCode)1);
+                writeCharacter(KEY_A);
+                break;
+            case F310_A:
+                writeCharacter(KEY_SPACE);
+                break;
+            case F310_B:
+                writeCharacter(KEY_G);
+                break;
+            case F310_Y:
+                writeCharacter(KEY_Q);
+                break;
+            case F310_LEFT_BUMPER:
+                writeCharacter(KEY_X);
+                break;
+            case F310_RIGHT_BUMPER:
+                writeCharacter(KEY_Z);
+                break;
+            case F310_LEFT_TRIGGER:
+                writeCharacter(KEY_C);
+                break;
+            case F310_RIGHT_TRIGGER:
+                writeCharacter(KEY_V);
+                break;
+            case F310_START:
+                writeCharacter(KEY_ESCAPE);
                 break;
             default:
+                break;
+        }
+    } else if (e.type == SDL_JOYHATMOTION) {
+        Uint8 value = e.jhat.value;
+
+        switch (value) {
+            case 1:
+                writeCharacter(KEY_UP);
+                break;
+            case 2:
+                writeCharacter(KEY_RIGHT);
+                break;
+            case 4:
+                writeCharacter(KEY_DOWN);
+                break;
+            case 8:
+                writeCharacter(KEY_LEFT);
                 break;
         }
     }
@@ -77,7 +118,7 @@ int main() {
             } else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) {
                 running = false;
                 break;
-            } else if (e.type == SDL_JOYBUTTONDOWN && e.jbutton.button == 9) {
+            } else if (e.type == SDL_JOYBUTTONDOWN && e.jbutton.button == F310_SELECT) {
                 running = false;
                 break;
             }

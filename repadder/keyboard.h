@@ -23,8 +23,9 @@ const static CGKeyCode KEY_RIGHT = 124;
 const static CGKeyCode KEY_DOWN  = 125;
 const static CGKeyCode KEY_UP    = 126;
 
-// The space key.
-const static CGKeyCode KEY_SPACE = 49;
+// The special keys.
+const static CGKeyCode KEY_SPACE  = 49;
+const static CGKeyCode KEY_ESCAPE = 53;
 
 // Writing a character out.
 void writeCharacter(CGKeyCode);
