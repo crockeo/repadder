@@ -8,33 +8,51 @@
 //////////
 // Code //
 
+// Processing an event.
+void processEvent(SDL_Event e) {
+    if (e.type == SDL_KEYDOWN) {
+        if (e.key.keysym.sym == SDLK_a)
+            std::cout << "A DOWN!!!\n";
+    } else if (e.type == SDL_JOYBUTTONDOWN) {
+        std::cout << e.jbutton.button << "\n";
+    }
+}
+
 // The entry point to the application.
 int main() {
-    SDL_Init(SDL_INIT_EVERYTHING);
-
-    Controller* c = new Controller(0);
-    if (c->isError())
+    if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
         return 1;
 
-    std::cout << c->getNumAxes() << "\n";
-    std::cout << c->getNumButtons() << "\n";
+    if (SDL_NumJoysticks() < 1) {
+        std::cout << "Not enough joysticks!\n";
+        return 1;
+    }
 
-    delete c;
+    SDL_Joystick* joy = SDL_JoystickOpen(0);
+    if (joy == nullptr) {
+        std::cout << "Couldn't open joystick 0.\n";
+        return 1;
+    }
+
+    // Looping through and processing all of the events.
+    SDL_Event e;
+    bool running = true;
+    while (running) {
+        // Polling and reacting to events.
+        while (SDL_PollEvent(&e) != 0) {
+            if (e.type == SDL_QUIT) {
+                running = false;
+                break;
+            } else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) {
+                running = false;
+                break;
+            }
+
+            processEvent(e);
+        }
+    }
+
+    // Cleaning up.
+    SDL_Quit();
     return 0;
-
-    //SDL_Joystick* joy;
-    //for (int i = 0; i < SDL_NumJoysticks() > 0; i++) {
-        //joy = SDL_JoystickOpen(i);
-
-        //if (joy) {
-            //std::cout << "Opened joystick #" << i << ": " << SDL_JoystickNameForIndex(i) << ".\n";
-            //std::cout << "Number of Axes #" << i << ": " << SDL_JoystickNumAxes(joy) << ".\n";
-            //std::cout << "Number of Buttons #" << i << ": " << SDL_JoystickNumButtons(joy) << ".\n";
-            //std::cout << "Number of Balls #" << i << ": " << SDL_JoystickNumBalls(joy) << ".\n";
-
-            //if (SDL_JoystickGetAttached(joy))
-                //SDL_JoystickClose(joy);
-        //} else
-            //std::cout << "Couldn't open the joystick " << i << ".\n";
-    //}
 }
