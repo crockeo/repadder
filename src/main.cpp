@@ -17,8 +17,10 @@ void processEvent(SDL_Event e) {
         std::cout << "Button: " << (int)e.jbutton.button << "\n";
     } else if (e.type == SDL_JOYAXISMOTION) {
         std::cout << "Axis: " << (int)e.jaxis.axis << "\n";
+        std::cout << "  Val: " << (int)e.jaxis.value << "\n";
     } else if (e.type == SDL_JOYHATMOTION) {
         std::cout << "Hat: " << (int)e.jhat.hat << "\n";
+        std::cout << "  Val: " << (int)e.jhat.value << "\n";
     }
 }
 

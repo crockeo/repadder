@@ -23,13 +23,32 @@ Right Stick = 11
 //
 
 Left Stick X = 0
-Left Stick Y = 1
+  Minimum Value: -32768 (Left)
+  Maximum Value:  32767 (Right)
 
-Right Stick X = 2
-Right Stick Y = 3
+Left Stick Y = 1
+  Minimum Value: -32768 (Up)
+  Maximum Value:  32767 (Down)
+
+Right Stick X = 0
+  Minimum Value: -32768 (Right)
+  Maximum Value:  32767 (Right)
+
+Right Stick Y = 1
+  Minimum Value: -32768 (Up)
+  Maximum Value:  32767 (Down)
 
 //
 // These are the maps of hats to things.
 //
 
 The DPad = 0
+  Neutral: 0
+  Up: 1
+  Up+Right: 3
+  Right: 2
+  Right+Down: 6
+  Down: 4
+  Down+Left: 12
+  Left: 8
+  Left+Up: 9
