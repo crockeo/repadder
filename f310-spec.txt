@@ -27,3 +27,9 @@ Left Stick Y = 1
 
 Right Stick X = 2
 Right Stick Y = 3
+
+//
+// These are the maps of hats to things.
+//
+
+The DPad = 0
