@@ -13,6 +13,4 @@ void writeCharacter(CGKeyCode code) {
     CGEventRef e = CGEventCreateKeyboardEvent(NULL, code, true);
     CGEventPost(kCGSessionEventTap, e);
     CFRelease(e);
-
-    printf("Attempting to write character %d.\n", code);
 }
