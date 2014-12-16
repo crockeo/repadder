@@ -78,25 +78,34 @@ int loadConfig(const char* path, Config* cfg) {
 
     char* buf = news(char, 8);
     while (!feof(fp)) {
-        if (fscanf(fp, "%s ", buf) < 1)
+        if (fscanf(fp, "%s ", buf) < 1) {
+            printf("Failed to match a config type.");
             return 2;
+        }
 
         if (strcmp(buf, "button") == 0) {
             ButtonMap bm = loadButtonMap(fp);
-            if (bm.joy == -1)
+            if (bm.joy == -1) {
+                printf("Failed to load a button.\n");
                 return 3;
+            }
             addButtonMap(cfg,bm);
         } else if (strcmp(buf, "joystick") == 0) {
             JoystickMap jm = loadJoystickMap(fp);
-            if (jm.joy == -1)
+            if (jm.joy == -1) {
+                printf("Failed to load a joystick.\n");
                 return 4;
+            }
             addJoystickMap(cfg, jm);
         } else if (strcmp(buf, "hat") == 0) {
             HatMap hm = loadHatMap(fp);
-            if (hm.joy == -1)
+            if (hm.joy == -1) {
+                printf("Failed to load a hat.\n");
                 return 5;
+            }
             addHatMap(cfg, hm);
         } else {
+            printf("Unrecognized line.\n");
             return 6;
         }
     }
