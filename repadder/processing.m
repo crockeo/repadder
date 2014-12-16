@@ -24,22 +24,16 @@ int processJoystickEvent(Config* cfg, SDL_Event e) {
 
 // Processing the whole event queue.
 int processEventQueue(Config* cfg) {
-    bool running = true;
     SDL_Event e;
-    
-    while (running) {
-        while (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT) {
-                running = false;
-                break;
-            }
-            
-            int n = processJoystickEvent(cfg, e);
-            if (n != 0)
-                return n;
-        }
-        
-        // Do some other stuff here?
+    int n;
+
+    while (SDL_WaitEvent(&e)) {
+        if (e.type == SDL_QUIT)
+            break;
+
+        n = processJoystickEvent(cfg, e);
+        if (n != 0)
+            return n;
     }
     
     return 0;

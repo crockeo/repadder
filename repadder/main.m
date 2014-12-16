@@ -142,23 +142,13 @@ int main() {
 
     // Looping through and processing all of the events.
     SDL_Event e;
-    bool running = true;
-    while (running) {
-        // Polling and reacting to events.
-        while (SDL_PollEvent(&e) != 0) {
-            if (e.type == SDL_QUIT) {
-                running = false;
-                break;
-            } else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) {
-                running = false;
-                break;
-            } else if (e.type == SDL_JOYBUTTONDOWN && e.jbutton.button == F310_SELECT) {
-                running = false;
-                break;
-            }
-            
-            processEvent(e);
-        }
+    while (SDL_WaitEvent(&e)) {
+        if (e.type == SDL_QUIT ||
+            (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) ||
+            (e.type == SDL_JOYBUTTONDOWN && e.jbutton.button == F310_SELECT))
+            break;
+
+        processEvent(e);
     }
 
     // Cleaning up.
