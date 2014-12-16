@@ -114,9 +114,8 @@ int chooseJoystick() {
     
     int joy = 0;
     while (joy == 0 || joy > max) {
-        printf(" > \n");
-        joy = 1;
-        // std::cin >> joy;
+        printf(" > ");
+        scanf("%d\n", &joy);
     }
     
     return joy - 1;
