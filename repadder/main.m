@@ -126,17 +126,17 @@ int chooseJoystick() {
 int main() {
     if (SDL_Init(SDL_INIT_JOYSTICK) == -1)
         return 1;
-    
+
     int n = chooseJoystick();
     if (n == -1)
         return 1;
-    
+
     SDL_Joystick* joy = SDL_JoystickOpen(n);
     if (joy == NULL) {
         printf("Couldn't open joystick %d.\n", n + 1);
         return 1;
     }
-    
+
     // Looping through and processing all of the events.
     SDL_Event e;
     bool running = true;
@@ -157,7 +157,7 @@ int main() {
             processEvent(e);
         }
     }
-    
+
     // Cleaning up.
     SDL_Quit();
     return 0;
