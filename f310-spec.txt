@@ -12,8 +12,8 @@ Right Bumper = 5
 Left Trigger = 6
 Right Trigger = 7
 
-Select = 9
-Start = 10
+Select = 8
+Start = 9
 
 Left Stick = 10
 Right Stick = 11
