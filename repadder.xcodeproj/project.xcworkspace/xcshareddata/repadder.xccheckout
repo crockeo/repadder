@@ -10,14 +10,14 @@
 	<string>repadder</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>006604C6FF8131885FC9A44D91CF5E0457915100</key>
+		<key>99749245B2DE8902087D9F8D64227EB076D03C24</key>
 		<string>github.com:crockeo/repadder.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>repadder.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>006604C6FF8131885FC9A44D91CF5E0457915100</key>
+		<key>99749245B2DE8902087D9F8D64227EB076D03C24</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>006604C6FF8131885FC9A44D91CF5E0457915100</string>
+	<string>99749245B2DE8902087D9F8D64227EB076D03C24</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>006604C6FF8131885FC9A44D91CF5E0457915100</string>
+			<string>99749245B2DE8902087D9F8D64227EB076D03C24</string>
 			<key>IDESourceControlWCCName</key>
 			<string>repadder</string>
 		</dict>
