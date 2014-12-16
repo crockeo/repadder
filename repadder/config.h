@@ -42,30 +42,32 @@ typedef struct HatMap {
 HatMap newHatMap(int, UInt8, Uint8, CGKeyCode);
 
 // A struct to represent keymaps.
-typedef struct Config {
-    int buttonMapSize;
-    int buttonMapCount;
-    ButtonMap* buttonMaps;
-    
-    int joystickMapSize;
-    int joystickMapCount;
-    JoystickMap* joystickMaps;
-    
-    int hatMapSize;
-    int hatMapCount;
-    HatMap* hatMaps;
-} Config;
+@interface Config : NSObject
 
-// Creating a new Config.
-Config* newConfig();
+// Buttons.
+@property int buttonMapSize;
+@property int buttonMapCount;
+@property ButtonMap* buttonMaps;
 
-// Adding a ButtonMap to a config.
-void addButtonMap(Config*, ButtonMap);
+// Joysticks.
+@property int joystickMapSize;
+@property int joystickMapCount;
+@property JoystickMap* joystickMaps;
 
-// Adding a JoystickMap to a config.
-void addJoystickMap(Config*, JoystickMap);
+// Hats.
+@property int hatMapSize;
+@property int hatMapCount;
+@property HatMap* hatMaps;
 
-// Adding a HatMap to a config.
-void addHatMap(Config*, HatMap);
+// Adding a ButtonMap.
+- (void)addButtonMap: (ButtonMap)input;
+
+// Adding a JoystickMap.
+- (void)addJoystickMap: (JoystickMap)input;
+
+// Adding a HatMap.
+- (void)addHatMap: (HatMap)input;
+
+@end
 
 #endif

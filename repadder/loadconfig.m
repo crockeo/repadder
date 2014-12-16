@@ -94,21 +94,21 @@ int loadConfig(const char* path, Config* cfg) {
                 printf("Failed to load a button.\n");
                 return 3;
             }
-            addButtonMap(cfg,bm);
+            [cfg addButtonMap:bm];
         } else if (strcmp(buf, "joystick") == 0) {
             JoystickMap jm = loadJoystickMap(fp);
             if (jm.joy == -1) {
                 printf("Failed to load a joystick.\n");
                 return 4;
             }
-            addJoystickMap(cfg, jm);
+            [cfg addJoystickMap:jm];
         } else if (strcmp(buf, "hat") == 0) {
             HatMap hm = loadHatMap(fp);
             if (hm.joy == -1) {
                 printf("Failed to load a hat.\n");
                 return 5;
             }
-            addHatMap(cfg, hm);
+            [cfg addHatMap:hm];
         } else {
             printf("Unrecognized line.\n");
             return 6;
@@ -128,28 +128,28 @@ int saveConfig(const char* path, Config* cfg) {
     }
     
     // Writing all of the buttons.
-    for (int i = 0; i < cfg->buttonMapCount; i++)
+    for (int i = 0; i < [cfg buttonMapCount]; i++)
         fprintf(fp, "button %d %d %d",
-                cfg->buttonMaps[i].joy,
-                cfg->buttonMaps[i].button,
-                cfg->buttonMaps[i].target);
+                [cfg buttonMaps][i].joy,
+                [cfg buttonMaps][i].button,
+                [cfg buttonMaps][i].target);
     
     // Writing all of the joysticks.
-    for (int i = 0; i < cfg->joystickMapCount; i++)
+    for (int i = 0; i < [cfg joystickMapCount]; i++)
         fprintf(fp, "joystick %d %d %d %d %d",
-                cfg->joystickMaps[i].joy,
-                cfg->joystickMaps[i].joystick,
-                cfg->joystickMaps[i].min,
-                cfg->joystickMaps[i].max,
-                cfg->joystickMaps[i].target);
+                [cfg joystickMaps][i].joy,
+                [cfg joystickMaps][i].joystick,
+                [cfg joystickMaps][i].min,
+                [cfg joystickMaps][i].max,
+                [cfg joystickMaps][i].target);
     
     // Writing all of the hats.
-    for (int i = 0; i < cfg->hatMapCount; i++)
+    for (int i = 0; i < [cfg hatMapCount]; i++)
         fprintf(fp, "hat %d %d %d %d",
-                cfg->hatMaps[i].joy,
-                cfg->hatMaps[i].hat,
-                cfg->hatMaps[i].value,
-                cfg->hatMaps[i].target);
+                [cfg hatMaps][i].joy,
+                [cfg hatMaps][i].hat,
+                [cfg hatMaps][i].value,
+                [cfg hatMaps][i].target);
     
     // TODO: Complete
     return 0;

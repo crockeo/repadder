@@ -43,63 +43,48 @@ HatMap newHatMap(int joy, UInt8 hat, Uint8 value, CGKeyCode target) {
     return hm;
 }
 
-// Creating a new Config.
-Config* newConfig() {
-    Config* cfg = new(Config);
-    
-    cfg->buttonMapSize = 1;
-    cfg->buttonMapCount = 0;
-    cfg->buttonMaps = news(ButtonMap, cfg->buttonMapSize);
-    
-    cfg->joystickMapSize = 1;
-    cfg->joystickMapCount = 0;
-    cfg->joystickMaps = news(JoystickMap, cfg->joystickMapSize);
-    
-    cfg->hatMapSize = 1;
-    cfg->hatMapCount = 0;
-    cfg->hatMaps = news(HatMap, cfg->hatMapSize);
-    
-    return cfg;
-}
+@implementation Config
 
-// Adding a ButtonMap to a config.
-void addButtonMap(Config* cfg, ButtonMap bm) {
-    if (cfg->buttonMapCount >= cfg->buttonMapSize) {
-        ButtonMap* tmp = news(ButtonMap, 2 * cfg->buttonMapSize);
-        for (int i = 0; i < cfg->buttonMapCount; i++)
-            tmp[i] = cfg->buttonMaps[i];
-        free(cfg->buttonMaps);
-        cfg->buttonMaps = tmp;
+// Adding a ButtonMap.
+- (void)addButtonMap: (ButtonMap)input {
+    if (_buttonMapCount >= _buttonMapSize) {
+        ButtonMap* tmp = news(ButtonMap, 2 * _buttonMapSize);
+        for (int i = 0; i < _buttonMapCount; i++)
+            tmp[i] = _buttonMaps[i];
+        free(_buttonMaps);
+        _buttonMaps = tmp;
+    }
+
+    _buttonMaps[_buttonMapCount] = input;
+    _buttonMapCount++;
+};
+
+// Adding a JoystickMap.
+- (void)addJoystickMap: (JoystickMap)input {
+    if (_joystickMapCount >= _joystickMapSize) {
+        JoystickMap* tmp = news(JoystickMap, 2 * _joystickMapSize);
+        for (int i = 0; i < _joystickMapCount; i++)
+            tmp[i] = _joystickMaps[i];
+        free(_joystickMaps);
+        _joystickMaps = tmp;
     }
     
-    cfg->buttonMaps[cfg->buttonMapCount] = bm;
-    cfg->buttonMapCount++;
-}
+    _joystickMaps[_joystickMapCount] = input;
+    _joystickMapCount++;
+};
 
-// Adding a JoystickMap to a config.
-void addJoystickMap(Config* cfg, JoystickMap jm) {
-    if (cfg->joystickMapCount >= cfg->joystickMapSize) {
-        JoystickMap* tmp = news(JoystickMap, 2 * cfg->joystickMapSize);
-        for (int i = 0; i < cfg->joystickMapCount; i++)
-            tmp[i] = cfg->joystickMaps[i];
-        free(cfg->joystickMaps);
-        cfg->joystickMaps = tmp;
+// Adding a HatMap.
+- (void)addHatMap: (HatMap)input {
+    if (_hatMapCount >= _hatMapSize) {
+        HatMap* tmp = news(HatMap, 2 * _hatMapSize);
+        for (int i = 0; i < _hatMapCount; i++)
+            tmp[i] = _hatMaps[i];
+        free(_hatMaps);
+        _hatMaps = tmp;
     }
     
-    cfg->joystickMaps[cfg->joystickMapCount] = jm;
-    cfg->joystickMapCount++;
-}
+    _hatMaps[_hatMapCount] = input;
+    _hatMapCount++;
+};
 
-// Adding a HatMap to a config.
-void addHatMap(Config* cfg, HatMap hm) {
-    if (cfg->hatMapCount >= cfg->hatMapSize) {
-        HatMap* tmp = news(HatMap, 2 * cfg->hatMapSize);
-        for (int i = 0; i < cfg->hatMapCount; i++)
-            tmp[i] = cfg->hatMaps[i];
-        free(cfg->hatMaps);
-        cfg->hatMaps = tmp;
-    }
-    
-    cfg->hatMaps[cfg->hatMapCount] = hm;
-    cfg->hatMapCount++;
-}
+@end
