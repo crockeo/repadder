@@ -32,11 +32,11 @@ JoystickMap newJoystickMap(int joy, Uint8 joystick, Sint16 min, Sint16 max, CGKe
 }
 
 // Creating a new HatMap.
-HatMap newHatMap(int joy, UInt8 joystick, Uint8 value, CGKeyCode target) {
+HatMap newHatMap(int joy, UInt8 hat, Uint8 value, CGKeyCode target) {
     HatMap hm;
     
     hm.joy = joy;
-    hm.joystick = joystick;
+    hm.hat = hat;
     hm.value = value;
     hm.target = target;
     

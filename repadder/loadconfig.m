@@ -60,6 +60,11 @@ HatMap loadHatMap(FILE* fp) {
     }
 
     HatMap hm;
+    hm.joy    = (Uint8)joy;
+    hm.hat    = (Uint8)hat;
+    hm.value  = (Uint8)value;
+    hm.target = (CGCharCode)target;
+    
     return hm;
 }
 
@@ -79,7 +84,7 @@ int loadConfig(const char* path, Config* cfg) {
     char* buf = news(char, 8);
     while (!feof(fp)) {
         if (fscanf(fp, "%s ", buf) < 1) {
-            printf("Failed to match a config type.");
+            printf("Failed to match a config type.\n");
             return 2;
         }
 
@@ -111,5 +116,41 @@ int loadConfig(const char* path, Config* cfg) {
     }
 
     fclose(fp);
+    return 0;
+}
+
+// Saving a config to a given location.
+int saveConfig(const char* path, Config* cfg) {
+    FILE* fp = fopen(path, "w");
+    if (fp == NULL) {
+        printf("Failed to open config file '%s' for writing.\n", path);
+        return 1;
+    }
+    
+    // Writing all of the buttons.
+    for (int i = 0; i < cfg->buttonMapCount; i++)
+        fprintf(fp, "button %d %d %d",
+                cfg->buttonMaps[i].joy,
+                cfg->buttonMaps[i].button,
+                cfg->buttonMaps[i].target);
+    
+    // Writing all of the joysticks.
+    for (int i = 0; i < cfg->joystickMapCount; i++)
+        fprintf(fp, "joystick %d %d %d %d %d",
+                cfg->joystickMaps[i].joy,
+                cfg->joystickMaps[i].joystick,
+                cfg->joystickMaps[i].min,
+                cfg->joystickMaps[i].max,
+                cfg->joystickMaps[i].target);
+    
+    // Writing all of the hats.
+    for (int i = 0; i < cfg->hatMapCount; i++)
+        fprintf(fp, "hat %d %d %d %d",
+                cfg->hatMaps[i].joy,
+                cfg->hatMaps[i].hat,
+                cfg->hatMaps[i].value,
+                cfg->hatMaps[i].target);
+    
+    // TODO: Complete
     return 0;
 }

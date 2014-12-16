@@ -11,4 +11,7 @@
 // Loading a config from a given path.
 int loadConfig(const char*, Config*);
 
+// Saving a config to a given location.
+int saveConfig(const char*, Config*);
+
 #endif

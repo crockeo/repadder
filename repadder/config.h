@@ -33,7 +33,7 @@ JoystickMap newJoystickMap(int, Uint8, Sint16, Sint16, CGKeyCode);
 // A struct to represent a hat map.
 typedef struct HatMap {
     int joy;
-    UInt8 joystick;
+    UInt8 hat;
     UInt8 value;
     CGKeyCode target;
 } HatMap;
