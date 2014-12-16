@@ -10,6 +10,9 @@
 //////////
 // Code //
 
+#define new(Type) (Type*)malloc(sizeof(Type))
+#define news(Type, n) (Type*)malloc(sizeof(Type) * n)
+
 // Processing an event.
 void processEvent(SDL_Event e) {
     if (e.type == SDL_JOYBUTTONUP || e.type == SDL_JOYBUTTONDOWN) {
@@ -51,44 +54,49 @@ void processEvent(SDL_Event e) {
         Uint8 value = e.jhat.value;
         printf("Hat: %d\n", value);
 
+        int numKeys = 4;
+        bool* keys = news(bool, numKeys);
+        for (int i = 0; i < numKeys; i++)
+            keys[i] = false;
+
         switch (value) {
             case F310_DPAD_UP:
-                writeCharacter(true, KEY_UP);
+                keys[0] = true;
                 break;
             case F310_DPAD_DOWN:
+                keys[1] = true;
                 writeCharacter(true, KEY_DOWN);
                 break;
 
             case F310_DPAD_LEFT:
-                writeCharacter(true, KEY_LEFT);
+                keys[2] = true;
                 break;
             case F310_DPAD_RIGHT:
-                writeCharacter(true, KEY_RIGHT);
+                keys[3] = true;
                 break;
 
             case F310_DPAD_UP_LEFT:
-                writeCharacter(true, KEY_UP);
-                writeCharacter(true, KEY_LEFT);
+                keys[0] = true;
+                keys[2] = true;
                 break;
             case F310_DPAD_DOWN_LEFT:
-                writeCharacter(true, KEY_DOWN);
-                writeCharacter(true, KEY_LEFT);
+                keys[1] = true;
+                keys[2] = true;
                 break;
 
             case F310_DPAD_UP_RIGHT:
-                writeCharacter(true, KEY_UP);
-                writeCharacter(true, KEY_RIGHT);
+                keys[0] = true;
+                keys[3] = true;
                 break;
             case F310_DPAD_DOWN_RIGHT:
-                writeCharacter(true, KEY_DOWN);
-                writeCharacter(true, KEY_RIGHT);
-            case F310_DPAD_NEUTRAL:
-                writeCharacter(false, KEY_DOWN);
-                writeCharacter(false, KEY_UP);
-                writeCharacter(false, KEY_LEFT);
-                writeCharacter(false, KEY_RIGHT);
-                break;
+                keys[1] = true;
+                keys[3] = true;
         }
+
+        writeCharacter(keys[0], KEY_UP);
+        writeCharacter(keys[1], KEY_DOWN);
+        writeCharacter(keys[2], KEY_LEFT);
+        writeCharacter(keys[3], KEY_RIGHT);
     }
 }
 
