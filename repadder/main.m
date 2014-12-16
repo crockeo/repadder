@@ -5,13 +5,11 @@
 #import <stdio.h>
 
 #import "keyboard.h"
+#import "macros.h"
 #import "f310.h"
 
 //////////
 // Code //
-
-#define new(Type) (Type*)malloc(sizeof(Type))
-#define news(Type, n) (Type*)malloc(sizeof(Type) * n)
 
 // Processing an event.
 void processEvent(SDL_Event e) {
