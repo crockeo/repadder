@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32536ABF1A40B96600C8C5D9 /* processing.m in Sources */ = {isa = PBXBuildFile; fileRef = 32536ABE1A40B96600C8C5D9 /* processing.m */; };
 		328835AB1A3F8FFD00108B51 /* keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 328835AA1A3F8FFD00108B51 /* keyboard.m */; };
 		328CBBC81A3FC0BF0006E448 /* config.m in Sources */ = {isa = PBXBuildFile; fileRef = 328CBBC71A3FC0BF0006E448 /* config.m */; };
 		328CBBCA1A3FCD680006E448 /* loadconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 328CBBC91A3FCD680006E448 /* loadconfig.m */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		32536ABD1A40B92F00C8C5D9 /* processing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = processing.h; sourceTree = "<group>"; };
+		32536ABE1A40B96600C8C5D9 /* processing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = processing.m; sourceTree = "<group>"; };
 		328835AA1A3F8FFD00108B51 /* keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyboard.m; sourceTree = "<group>"; };
 		328835AC1A3F90E000108B51 /* keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
 		328835AD1A3F920700108B51 /* f310.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = f310.h; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				328CBBC71A3FC0BF0006E448 /* config.m */,
 				328CBBC91A3FCD680006E448 /* loadconfig.m */,
 				328CBBCB1A3FCD870006E448 /* loadconfig.h */,
+				32536ABD1A40B92F00C8C5D9 /* processing.h */,
+				32536ABE1A40B96600C8C5D9 /* processing.m */,
 			);
 			path = repadder;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32536ABF1A40B96600C8C5D9 /* processing.m in Sources */,
 				328CBBC81A3FC0BF0006E448 /* config.m in Sources */,
 				328CBBCA1A3FCD680006E448 /* loadconfig.m in Sources */,
 				328835AB1A3F8FFD00108B51 /* keyboard.m in Sources */,
