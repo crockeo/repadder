@@ -108,14 +108,18 @@ int chooseJoystick() {
     
     for (int i = 0; i < max; i++) {
         SDL_Joystick* joy = SDL_JoystickOpen(i);
-        printf("%s (%d)\n", SDL_JoystickName(joy), i + 1);
+        printf("Joysticks:\n");
+        printf(" %s (%d)\n", SDL_JoystickName(joy), i + 1);
         SDL_JoystickClose(joy);
     }
     
+    char* buf = news(char, 4);
     int joy = 0;
+
     while (joy == 0 || joy > max) {
-        printf(" > ");
-        scanf("%d\n", &joy);
+        printf("Choose a Joystick> ");
+        fgets(buf, 4, stdin);
+        sscanf(buf, "%d", &joy);
     }
     
     return joy - 1;
