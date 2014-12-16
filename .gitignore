@@ -1,6 +1,2 @@
-# Ignoring CMake files.
-CMakeFiles/
-CMakeCache.txt
-Makefile
-build/
-cmake_install.cmake
+# Ignoring a script I made to run the damng thing.
+run
