@@ -2,6 +2,7 @@
 
 //////////////
 // Includes //
+#import <Cocoa/Cocoa.h>
 #import <stdio.h>
 
 #import "config.h"
@@ -12,18 +13,52 @@
 
 // Loading a single ButtonMap.
 ButtonMap loadButtonMap(FILE* fp) {
+    int joy, button, target;
+
+    if (fscanf(fp, "%d %d %d\n", &joy, &button, &target) < 3) {
+        ButtonMap bm;
+        bm.joy = -1;
+        return bm;
+    }
+
     ButtonMap bm;
+    bm.joy    = (Uint8)joy;
+    bm.button = (Uint8)button;
+    bm.target = (CGKeyCode)target;
+
     return bm;
 }
 
 // Loading a single JoystickMap.
 JoystickMap loadJoystickMap(FILE* fp) {
+    int joy, joystick, min, max, target;
+
+    if (fscanf(fp, "%d %d %d %d %d\n", &joy, &joystick, &min, &max, &target) < 5) {
+        JoystickMap jm;
+        jm.joy = -1;
+        return jm;
+    }
+
     JoystickMap jm;
+    jm.joy      = (Uint8)joy;
+    jm.joystick = (Uint8)joystick;
+    jm.min      = (Sint16)min;
+    jm.max      = (Sint16)max;
+    jm.target   = (CGKeyCode)target;
+
     return jm;
 }
 
 // Loading a single HatMap.
 HatMap loadHatMap(FILE* fp) {
+    int joy, hat, value, target;
+
+    if (fscanf(fp, "%d %d %d %d\n", &joy, &hat, &value, &target) < 4) {
+        HatMap hm;
+        hm.joy = -1;
+        return hm;
+    }
+
     HatMap hm;
     return hm;
 }
