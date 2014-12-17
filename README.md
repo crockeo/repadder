@@ -1,7 +1,12 @@
-# repadder
+# Repadder
 
-This is exploring the Joystick API in SDL. Specifically for the intent of
-writing something for myself like XPadder or something so that I can play Risk
-of Rain on Mac.
+Repadder is a tool to match controller inputs to keyboard inputs. My use case of
+it is for playing videogames that don't support controllers. For instance,
+[Risk of Rain](http://riskofraingame.com) is a game I love to play, but it
+doesn't officially support DInput controllers. So instead I've created a mapping
+for it to play on my Logitech F310.
 
-I'm tired. And it's only 10:27 PM.
+### License
+
+This project is licensed under the MIT license, as specified in the accompanying
+`LICENSE` file.
