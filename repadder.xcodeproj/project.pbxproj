@@ -55,6 +55,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32C013481A41AAE10012CFC5 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				328835AA1A3F8FFD00108B51 /* keyboard.m */,
+				328835AC1A3F90E000108B51 /* keyboard.h */,
+				328835AD1A3F920700108B51 /* f310.h */,
+				328CBBC51A3FBF160006E448 /* config.h */,
+				328CBBC61A3FBFFB0006E448 /* macros.h */,
+				328CBBC71A3FC0BF0006E448 /* config.m */,
+				328CBBC91A3FCD680006E448 /* loadconfig.m */,
+				328CBBCB1A3FCD870006E448 /* loadconfig.h */,
+				32536ABD1A40B92F00C8C5D9 /* processing.h */,
+				32536ABE1A40B96600C8C5D9 /* processing.m */,
+			);
+			name = core;
+			sourceTree = "<group>";
+		};
 		32C743331A3F8AE100D8F7D2 = {
 			isa = PBXGroup;
 			children = (
@@ -75,17 +92,8 @@
 		32C7433E1A3F8AE100D8F7D2 /* repadder */ = {
 			isa = PBXGroup;
 			children = (
+				32C013481A41AAE10012CFC5 /* core */,
 				32C7433F1A3F8AE100D8F7D2 /* main.m */,
-				328835AA1A3F8FFD00108B51 /* keyboard.m */,
-				328835AC1A3F90E000108B51 /* keyboard.h */,
-				328835AD1A3F920700108B51 /* f310.h */,
-				328CBBC51A3FBF160006E448 /* config.h */,
-				328CBBC61A3FBFFB0006E448 /* macros.h */,
-				328CBBC71A3FC0BF0006E448 /* config.m */,
-				328CBBC91A3FCD680006E448 /* loadconfig.m */,
-				328CBBCB1A3FCD870006E448 /* loadconfig.h */,
-				32536ABD1A40B92F00C8C5D9 /* processing.h */,
-				32536ABE1A40B96600C8C5D9 /* processing.m */,
 			);
 			path = repadder;
 			sourceTree = "<group>";
