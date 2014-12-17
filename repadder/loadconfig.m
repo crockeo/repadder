@@ -90,7 +90,10 @@ int loadConfig(const char* path, Config* cfg) {
 
         if (strcmp(buf, "button") == 0) {
             ButtonMap bm = loadButtonMap(fp);
+
+            // TODO: Figure out why this 'printf' works.
             printf("%d\n", bm.button);
+
             if (bm.joy == -1) {
                 printf("Failed to load a button.\n");
                 return 3;
