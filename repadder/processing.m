@@ -15,10 +15,8 @@ int processJoyButtonEvent(Config* cfg, SDL_JoyButtonEvent e) {
     ButtonMap bm;
     for (int i = 0; i < cfg.buttonMapCount; i++) {
         bm = cfg.buttonMaps[i];
-        if (bm.joy == e.which && bm.button == e.button) {
+        if (bm.joy == e.which && bm.button == e.button)
             writeCharacter(e.state == 1, bm.target);
-            break;
-        }
     }
 
     return 0;
@@ -29,10 +27,8 @@ int processJoyAxisEvent(Config* cfg, SDL_JoyAxisEvent e) {
     JoystickMap jm;
     for (int i = 0; i < cfg.joystickMapCount; i++) {
         jm = cfg.joystickMaps[i];
-        if (jm.joy == e.which && jm.joystick == e.axis) {
+        if (jm.joy == e.which && jm.joystick == e.axis)
             writeCharacter(jm.min <= e.value && e.value <= jm.max, jm.target);
-            break;
-        }
     }
 
     return 0;
@@ -44,10 +40,9 @@ int processJoyHatEvent(Config* cfg, SDL_JoyHatEvent e) {
     for (int i = 0; i < cfg.hatMapCount; i++) {
         hm = cfg.hatMaps[i];
         if (hm.joy == e.which && hm.hat == e.hat) {
-            if (hm.value == e.value) {
+            if (hm.value == e.value)
                 writeCharacter(true, hm.target);
-                break;
-            } else
+            else
                 writeCharacter(false, hm.target);
         }
     }
