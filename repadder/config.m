@@ -46,25 +46,23 @@ HatMap newHatMap(int joy, UInt8 hat, Uint8 value, CGKeyCode target) {
 @implementation Config
 
 // Allocating the initial Config.
-+ (id)init {
-    Config* cfg = [Config alloc];
-
+- (id)init {
     // Initializing the ButtonMaps.
-    cfg.buttonMapSize = 1;
-    cfg.buttonMapCount = 0;
-    cfg.buttonMaps = news(ButtonMap, cfg.buttonMapSize);
+    _buttonMapSize = 1;
+    _buttonMapCount = 0;
+    _buttonMaps = news(ButtonMap, _buttonMapSize);
 
     // Initializing the JoystickMaps.
-    cfg.joystickMapSize = 1;
-    cfg.joystickMapCount = 0;
-    cfg.joystickMaps = news(JoystickMap, cfg.joystickMapSize);
+    _joystickMapSize = 1;
+    _joystickMapCount = 0;
+    _joystickMaps = news(JoystickMap, _joystickMapSize);
 
     // Initializing the HatMaps.
-    cfg.hatMapSize = 1;
-    cfg.hatMapCount = 0;
-    cfg.hatMaps = news(HatMap, cfg.hatMapSize);
+    _hatMapSize = 1;
+    _hatMapCount = 0;
+    _hatMaps = news(HatMap, _hatMapSize);
 
-    return cfg;
+    return self;
 };
 
 // Adding a ButtonMap.
