@@ -73,7 +73,11 @@ HatMap loadHatMap(FILE* fp) {
 //   = 0 means success.
 //   > 0 means failure. There are multiple possible values:
 //      * 1 means couldn't open file.
-//      * 2
+//      * 2 means it failed to match a config type.
+//      * 3 means it failed after matching a button.
+//      * 4 means it failed after matching a joystick.
+//      * 5 means it failed after matching a hat.
+//      * 6 means it couldn't match a line.
 int loadConfig(const char* path, Config* cfg) {
     FILE* fp = fopen(path, "r");
     if (fp == NULL) {
@@ -90,10 +94,6 @@ int loadConfig(const char* path, Config* cfg) {
 
         if (strcmp(buf, "button") == 0) {
             ButtonMap bm = loadButtonMap(fp);
-
-            // TODO: Figure out why this 'printf' works.
-            printf("%d\n", bm.button);
-
             if (bm.joy == -1) {
                 printf("Failed to load a button.\n");
                 return 3;

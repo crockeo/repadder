@@ -21,7 +21,7 @@ int main(int argc, const char** argv) {
     }
 
     // Opening a config.
-    Config* cfg = [Config alloc];
+    Config* cfg = [Config init];
     if (loadConfig(argv[1], cfg) != 0)
         return 1;
     printf("Loaded config file.\n");

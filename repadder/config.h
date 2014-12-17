@@ -59,6 +59,9 @@ HatMap newHatMap(int, UInt8, Uint8, CGKeyCode);
 @property int hatMapCount;
 @property HatMap* hatMaps;
 
+// Allocating the initial Config.
++ (id)init;
+
 // Adding a ButtonMap.
 - (void)addButtonMap: (ButtonMap)input;
 
