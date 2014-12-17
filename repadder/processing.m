@@ -36,16 +36,18 @@ int processJoyAxisEvent(Config* cfg, SDL_JoyAxisEvent e) {
 
 // Processing an SDL_JoyHatEvent.
 int processJoyHatEvent(Config* cfg, SDL_JoyHatEvent e) {
+    Writes* w = [[Writes alloc] init];
     HatMap hm;
+
     for (int i = 0; i < cfg.hatMapCount; i++) {
         hm = cfg.hatMaps[i];
         if (hm.joy == e.which && hm.hat == e.hat) {
-            if (hm.value == e.value)
-                writeCharacter(true, hm.target);
-            else
-                writeCharacter(false, hm.target);
+            [w addKeyCode:(hm.value == e.value)
+                         :(hm.target)];
         }
     }
+
+    [w performWrites];
 
     return 0;
 }

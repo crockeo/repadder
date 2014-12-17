@@ -30,4 +30,24 @@ const static CGKeyCode KEY_ESCAPE = 53;
 // Writing a character out.
 void writeCharacter(bool, CGKeyCode);
 
+// Representing multiple writes to perform at the same time.
+@interface Writes : NSObject {
+    int size;
+    int len;
+    bool* states;
+    CGKeyCode* codes;
+}
+
+// Initializing a Writes.
+- (id)init;
+
+// Adding a keycode to a writes.
+- (void)addKeyCode: (bool)pressed
+                  : (CGKeyCode)code;
+
+// Performing all of the writes contained.
+- (void)performWrites;
+
+@end
+
 #endif
