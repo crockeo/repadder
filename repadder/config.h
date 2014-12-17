@@ -44,10 +44,6 @@ HatMap newHatMap(int, UInt8, Uint8, CGKeyCode);
 // A struct to represent keymaps.
 @interface Config : NSObject
 
-// Hardware Joysticks.
-@property int joysticksNum;
-@property int* joysticks;
-
 // Buttons.
 @property int buttonMapSize;
 @property int buttonMapCount;
