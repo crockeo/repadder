@@ -44,8 +44,11 @@ int processJoyHatEvent(Config* cfg, SDL_JoyHatEvent e) {
     for (int i = 0; i < cfg.hatMapCount; i++) {
         hm = cfg.hatMaps[i];
         if (hm.joy == e.which && hm.hat == e.hat) {
-            writeCharacter(hm.value == e.value, hm.target);
-            break;
+            if (hm.value == e.value) {
+                writeCharacter(true, hm.target);
+                break;
+            } else
+                writeCharacter(false, hm.target);
         }
     }
 
