@@ -138,14 +138,14 @@ int saveConfig(const char* path, Config* cfg) {
     
     // Writing all of the buttons.
     for (int i = 0; i < [cfg buttonMapCount]; i++)
-        fprintf(fp, "button %d %d %d",
+        fprintf(fp, "button %d %d %d\n",
                 [cfg buttonMaps][i].joy,
                 [cfg buttonMaps][i].button,
                 [cfg buttonMaps][i].target);
     
     // Writing all of the joysticks.
     for (int i = 0; i < [cfg joystickMapCount]; i++)
-        fprintf(fp, "joystick %d %d %d %d %d",
+        fprintf(fp, "joystick %d %d %d %d %d\n",
                 [cfg joystickMaps][i].joy,
                 [cfg joystickMaps][i].joystick,
                 [cfg joystickMaps][i].min,
@@ -154,7 +154,7 @@ int saveConfig(const char* path, Config* cfg) {
     
     // Writing all of the hats.
     for (int i = 0; i < [cfg hatMapCount]; i++)
-        fprintf(fp, "hat %d %d %d %d",
+        fprintf(fp, "hat %d %d %d %d\n",
                 [cfg hatMaps][i].joy,
                 [cfg hatMaps][i].hat,
                 [cfg hatMaps][i].value,
