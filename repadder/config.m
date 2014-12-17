@@ -74,6 +74,7 @@ HatMap newHatMap(int joy, UInt8 hat, Uint8 value, CGKeyCode target) {
         for (int i = 0; i < _buttonMapCount; i++)
             tmp[i] = _buttonMaps[i];
         free(_buttonMaps);
+        _buttonMapSize *= 2;
         _buttonMaps = tmp;
     }
 
@@ -88,6 +89,7 @@ HatMap newHatMap(int joy, UInt8 hat, Uint8 value, CGKeyCode target) {
         for (int i = 0; i < _joystickMapCount; i++)
             tmp[i] = _joystickMaps[i];
         free(_joystickMaps);
+        _joystickMapSize *= 2;
         _joystickMaps = tmp;
     }
     
@@ -102,9 +104,10 @@ HatMap newHatMap(int joy, UInt8 hat, Uint8 value, CGKeyCode target) {
         for (int i = 0; i < _hatMapCount; i++)
             tmp[i] = _hatMaps[i];
         free(_hatMaps);
+        _hatMapSize *= 2;
         _hatMaps = tmp;
     }
-    
+
     _hatMaps[_hatMapCount] = input;
     _hatMapCount++;
 };
