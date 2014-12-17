@@ -92,7 +92,12 @@ int loadConfig(const char* path, Config* cfg) {
             return 2;
         }
 
-        if (strcmp(buf, "button") == 0) {
+        if (strcmp(buf, "#") == 0) {
+            char c;
+            do {
+                c = (char)fgetc(fp);
+            } while (c != '\n' && c != '\r');
+        } else if (strcmp(buf, "button") == 0) {
             ButtonMap bm = loadButtonMap(fp);
             if (bm.joy == -1) {
                 printf("Failed to load a button.\n");
